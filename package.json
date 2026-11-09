@@ -1,0 +1,66 @@
+{
+  "name": "holiday-calendar",
+  "productName": "节假日日历",
+  "version": "1.0.1",
+  "description": "Win11 风格日历 · 显示法定节假日与调休（休 / 班）",
+  "author": "HolidayCalendar",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^32.2.0",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "koffi": "^3.3.7"
+  },
+  "build": {
+    "appId": "com.holidaycalendar.app",
+    "productName": "节假日日历",
+    "copyright": "Copyright © 2026",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "hook.js",
+      "preload.js",
+      "index.html",
+      "app.js",
+      "style.css",
+      "data.js",
+      "vendor/**/*",
+      "assets/tray.png",
+      "assets/icon.ico",
+      "!**/*.map",
+      "!**/*.md"
+    ],
+    "asarUnpack": [
+      "node_modules/koffi/**",
+      "node_modules/@koromix/**"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "节假日日历",
+      "artifactName": "节假日日历-安装版-${version}.${ext}",
+      "deleteAppDataOnUninstall": false
+    },
+    "portable": {
+      "artifactName": "节假日日历-免安装-${version}.${ext}"
+    }
+  }
+}

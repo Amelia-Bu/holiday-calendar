@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+<title>节假日日历</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="flyout" id="flyout">
+  <div class="hd">
+    <button class="hd-title" id="title" title="点击切换视图：月历 → 月份 → 年份">
+      <span id="titleText">2026年11月</span>
+      <svg class="chev" width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
+        <path d="M1.5 3L4 5.5L6.5 3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="hd-nav">
+      <button class="icon-btn" id="prev" title="上个月" aria-label="上个月">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="icon-btn" id="next" title="下个月" aria-label="下个月">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M4.5 2.5L8 6L4.5 9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="txt-btn" id="today">今天</button>
+    </div>
+  </div>
+
+  <div id="dayview">
+    <div class="weekdays">
+      <span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="sep"></div>
+
+    <div class="detail" id="detail"></div>
+  </div>
+
+  <div class="picker" id="picker"></div>
+
+  <div class="foot">
+    <span class="lg"><i class="dot rest"></i>放假</span>
+    <span class="lg"><i class="dot work"></i>调休上班</span>
+    <span class="src" id="foot">国务院办公厅</span>
+  </div>
+</div>
+
+<script src="vendor/solarlunar.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
